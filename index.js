@@ -156,6 +156,23 @@ function get3rdCar(inventory) {
 // 👇 COMPLETE YOUR WORK BELOW 👇
 
 
+var inventory = [
+  { id: 1, car_make: "Lincoln", car_model: "Navigator", car_year: 2009 },
+  { id: 2, car_make: "Mazda", car_model: "Miata MX-5", car_year: 2001 },
+  { id: 3, car_make: "Land Rover", car_model: "Defender Ice Edition", car_year: 2010 },
+  { id: 4, car_make: "Honda", car_model: "Accord", car_year: 1983 },
+  { id: 5, car_make: "Mitsubishi", car_model: "Galant", car_year: 1990 },
+  { id: 6, car_make: "Honda", car_model: "Accord", car_year: 1995 },
+  { id: 7, car_make: "Smart", car_model: "Fortwo", car_year: 2009 },
+  { id: 8, car_make: "Audi", car_model: "4000CS Quattro", car_year: 1987 },
+  { id: 9, car_make: "Ford", car_model: "Windstar", car_year: 1996 },
+  { id: 10, car_make: "Mercedes-Benz", car_model: "E-Class", car_year: 2000 },
+  { id: 11, car_make: "Infiniti", car_model: "G35", car_year: 2004 },
+  { id: 12, car_make: "Lotus", car_model: "Esprit", car_year: 2004 },
+  { id: 13, car_make: "Chevrolet", car_model: "Cavalier", car_year: 1997 },
+  { id: 14, car_make: "Dodge", car_model: "Ram Van 1500", car_year: 1999 },
+]
+
 /**
  * ### Challenge `getCarInfoByIndex`
  * 
@@ -169,39 +186,39 @@ function get3rdCar(inventory) {
  * it will return `This is a Lincoln Navigator`.
 */
 
-const cars = [
-  {
-    id: 1,
-    make:"Honda",
-    model: "Ridgline",
-    year: 2016,
-  },
-  {
-    id: 2,
-    make:"Jeep",
-    model: "Wrangler",
-    year: 2014,
+// const cars = [
+//   {
+//     id: 1,
+//     make:"Honda",
+//     model: "Ridgline",
+//     year: 2016,
+//   },
+//   {
+//     id: 2,
+//     make:"Jeep",
+//     model: "Wrangler",
+//     year: 2014,
 
-  },
-  {
-    id: 3,
-    make:"Ford",
-    model: "F-150",
-    year: 2012,
+//   },
+//   {
+//     id: 3,
+//     make:"Ford",
+//     model: "F-150",
+//     year: 2012,
 
-  },
-  {
-    id: 4,
-    make:"Chevy",
-    model: "Silverado",
-    year: 2010,
-  },
-];
+//   },
+//   {
+//     id: 4,
+//     make:"Chevy",
+//     model: "Silverado",
+//     year: 2010,
+//   },
+// ];
 
 function getCarInfoByIndex() {
   /* code here */
   const index = 1;
-  return `This car is a ${cars[index].make} ${cars[index].model}`;
+  return `This car is a ${inventory[index].car_make} ${inventory[index].car_model}`;
 }
 console.log(getCarInfoByIndex());
 
@@ -217,11 +234,12 @@ console.log(getCarInfoByIndex());
  * it will return `This is a Lincoln Town Car`.
 */
 
-function getLastCarInfo(/* code here */) {
+function getLastCarInfo(inventory) {
   /* code here */
-  return cars.pop();
+  const lastCar = inventory.pop();
+  return `This is a ${lastCar.car_make} ${lastCar.car_model}`;
 }
-console.log(getLastCarInfo())
+console.log(getLastCarInfo(inventory))
 
 
 /**
@@ -237,11 +255,12 @@ console.log(getLastCarInfo())
  * it will return `This is a Lincoln Navigator`.
 */
 
-function getCarInfoById(/* code here */) {
+function getCarInfoById(inventory, id) {
   /* code here */
-  return cars.find(x => x.id === 1);
+  const carId = inventory.find(x => x.id === 1);
+  return `This is a ${carId.car_make} ${carId.car_model}`;
 }
-console.log(getCarInfoById());
+console.log(getCarInfoById(inventory));
 
 /**
  * ### Challenge `sortCarInventory`
@@ -251,15 +270,18 @@ console.log(getCarInfoById());
  *     (1) an array which is an inventory of cars like the one inside /data/inventory.js.
  * sortCarInventory returns an inventory that is sorted by car_model, ascending [A-Z].
 */
-function sortCarInventory(/* code here */) {
+function sortCarInventory(inventory) {
   /* code here */
-  const models = cars.map(models => {
-    return models.model;
+  const model = inventory.map(inventory => {
+    return inventory.car_model;
+  })
+  model.sort((a, b) => {
+    return a-b;
   });
   // return models;
-  return models.sort();
+  return inventory;
 }
-console.log(sortCarInventory());
+console.log(sortCarInventory(inventory));
 
 /**
  * ### Challenge `getModelYears`
@@ -270,14 +292,14 @@ console.log(sortCarInventory());
  *     (1) an array which is an inventory of cars like the one inside /data/inventory.js.
  * getModelYears returns an array containing all the 'car_year's in the inventory.
 */
-function getModelYears(cars) {
+function getModelYears() {
   /* code here */
-  const year = cars.map(car => {
-    return car.year;
+  const years = inventory.map( inventory => {
+    return inventory.car_year;
   });
-  return year;
+  return years;
 }
-console.log(getModelYears(cars));
+console.log(getModelYears());
 
 /**
  * ### Challenge `getOlderCars`
@@ -292,17 +314,16 @@ console.log(getModelYears(cars));
  * in the same order as they appear in the original inventory.
 */
 
-function getOlderCars(cars) {
+function getOlderCars(inventory, i) {
   /* code here */
-  const year = cars.map(car => {
-    return car.year;
-  });
-  if(year < 2014) {
-    return cars;
+  // const maxYear = 2000;
+  for (let i = inventory.car_year; i <= 2000; i ++ ) {
+    return i;
   }
-  return cars;
+  return inventory[i];
 }
-console.log(getOlderCars(cars));
+
+console.log(getOlderCars(inventory));
 
 /**
  * ### Challenge `getGermanCars`
