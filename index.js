@@ -23,6 +23,9 @@ function addNumbers(num1, num2) {
 // 👇 COMPLETE YOUR WORK BELOW 👇
 // 👇 COMPLETE YOUR WORK BELOW 👇
 
+
+
+
 /**
  * ### Challenge `makePersonObject`
  * 
@@ -41,7 +44,17 @@ function addNumbers(num1, num2) {
 */
 function makePersonObject(/* code here */) {
   /* code here */
+  const person = {
+    id: 1,
+    name: 'Hiter',
+    email: 'email@gmail.com',
+  };
+  return person;
 }
+console.log(makePersonObject());
+
+
+
 
 /**
  * ### Challenge `getName`
@@ -56,9 +69,17 @@ function makePersonObject(/* code here */) {
  * passing { id: 1, name: 'Leia', email: 'leia@leia.com` } as the argument,
  * the returned value should look like `Hello, my name is Leia`.
 */
-function getName(/* code here */) {
+function getName() {
   /* code here */
+  const person = {
+    name: 'Hiter',
+  }
+  return 'Hello, my name is ' + person.name;
 }
+console.log(getName());
+
+
+
 
 /**
  * ### Challenge `makeSmartPerson`
@@ -73,10 +94,22 @@ function getName(/* code here */) {
  *         and returns a string like `Hello, my name is {name}`.
  *         where `{name}` is the name passed into `makeSmartPerson`.
 */
-function makeSmartPerson(/* code here */) {
-  /* code here */
-}
 
+function makeSmartPerson(name) {
+  /* code here */
+  const person = {
+    name: name,
+    sum: function(num1, num2) {
+      return num1 + num2;
+    },
+    speak: function() {
+      return ('Hello, my name is ' + person.name);
+    },
+  }
+  return person;
+}
+console.log(makeSmartPerson().sum(1,2));
+console.log(makeSmartPerson('Hiter').speak());
 
 
 
@@ -135,9 +168,32 @@ function get3rdCar(inventory) {
  * For example, if getCarInfoByIndex is invoked with the inventory and the number 0,
  * it will return `This is a Lincoln Navigator`.
 */
-function getCarInfoByIndex(inventory, index) {
+
+
+function getCarInfoByIndex() {
   /* code here */
+  const car = [
+      {
+        make:"Honda",
+        model: "Ridgline",
+      },
+      {
+        make:"Jeep",
+        model: "Wrangler",
+      },
+      {
+        make:"Ford",
+        model: "F-150",
+      },
+      {
+        make:"Chevy",
+        model: "Silverado",
+      }
+  ];
+  const index = 1;
+  return `This car is a ${car[index].make} ${car[index].model}`;
 }
+console.log(getCarInfoByIndex());
 
 /**
  * ### Challenge `getLastCarInfo`
