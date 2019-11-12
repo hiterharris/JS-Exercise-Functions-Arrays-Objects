@@ -53,9 +53,6 @@ function makePersonObject(/* code here */) {
 }
 console.log(makePersonObject());
 
-
-
-
 /**
  * ### Challenge `getName`
  * 
@@ -77,9 +74,6 @@ function getName() {
   return 'Hello, my name is ' + person.name;
 }
 console.log(getName());
-
-
-
 
 /**
  * ### Challenge `makeSmartPerson`
@@ -110,9 +104,6 @@ function makeSmartPerson(name) {
 }
 console.log(makeSmartPerson().sum(1,2));
 console.log(makeSmartPerson('Hiter').speak());
-
-
-
 
 /*
 // ⭐️ Example Test Data ⭐️
@@ -186,41 +177,12 @@ var inventory = [
  * it will return `This is a Lincoln Navigator`.
 */
 
-// const cars = [
-//   {
-//     id: 1,
-//     make:"Honda",
-//     model: "Ridgline",
-//     year: 2016,
-//   },
-//   {
-//     id: 2,
-//     make:"Jeep",
-//     model: "Wrangler",
-//     year: 2014,
-
-//   },
-//   {
-//     id: 3,
-//     make:"Ford",
-//     model: "F-150",
-//     year: 2012,
-
-//   },
-//   {
-//     id: 4,
-//     make:"Chevy",
-//     model: "Silverado",
-//     year: 2010,
-//   },
-// ];
-
 function getCarInfoByIndex() {
   /* code here */
   const index = 1;
   return `This car is a ${inventory[index].car_make} ${inventory[index].car_model}`;
 }
-console.log(getCarInfoByIndex());
+console.log(`INDEX: ${getCarInfoByIndex()}`);
 
 /**
  * ### Challenge `getLastCarInfo`
@@ -234,12 +196,12 @@ console.log(getCarInfoByIndex());
  * it will return `This is a Lincoln Town Car`.
 */
 
-function getLastCarInfo(inventory) {
+function getLastCarInfo() {
   /* code here */
   const lastCar = inventory.pop();
   return `This is a ${lastCar.car_make} ${lastCar.car_model}`;
 }
-console.log(getLastCarInfo(inventory))
+console.log(`LAST: ${getLastCarInfo()}`);
 
 
 /**
@@ -255,12 +217,12 @@ console.log(getLastCarInfo(inventory))
  * it will return `This is a Lincoln Navigator`.
 */
 
-function getCarInfoById(inventory, id) {
+function getCarInfoById() {
   /* code here */
   const carId = inventory.find(x => x.id === 1);
   return `This is a ${carId.car_make} ${carId.car_model}`;
 }
-console.log(getCarInfoById(inventory));
+console.log(`ID: ${getCarInfoById()}`);
 
 /**
  * ### Challenge `sortCarInventory`
@@ -299,7 +261,7 @@ function getModelYears() {
   });
   return years;
 }
-console.log(getModelYears());
+console.log(`MODELYEARS: ${getModelYears()}`);
 
 /**
  * ### Challenge `getOlderCars`
