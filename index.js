@@ -237,13 +237,13 @@ function sortCarInventory(inventory) {
   const model = inventory.map(inventory => {
     return inventory.car_model;
   })
-  model.sort((a, b) => {
+  const list = model.sort((a, b) => {
     return a-b;
   });
   // return models;
-  return inventory;
+  return JSON.stringify(list);
 }
-console.log(sortCarInventory(inventory));
+console.log(`A to Z: ${sortCarInventory(inventory)}`);
 
 /**
  * ### Challenge `getModelYears`
@@ -254,14 +254,14 @@ console.log(sortCarInventory(inventory));
  *     (1) an array which is an inventory of cars like the one inside /data/inventory.js.
  * getModelYears returns an array containing all the 'car_year's in the inventory.
 */
-function getModelYears() {
+function getModelYears(inventory) {
   /* code here */
   const years = inventory.map( inventory => {
     return inventory.car_year;
   });
   return years;
 }
-console.log(`MODELYEARS: ${getModelYears()}`);
+console.log(`MODELYEARS: ${getModelYears(inventory)}`);
 
 /**
  * ### Challenge `getOlderCars`
@@ -276,16 +276,19 @@ console.log(`MODELYEARS: ${getModelYears()}`);
  * in the same order as they appear in the original inventory.
 */
 
-function getOlderCars(inventory, i) {
+function getOlderCars(inventory) {
   /* code here */
-  // const maxYear = 2000;
-  for (let i = inventory.car_year; i <= 2000; i ++ ) {
-    return i;
+  const max = 2000;
+  const years = inventory.map( inventory => {
+    return inventory.car_year;
+  });
+  for (let i = 0; i < 2010; i++) {
+    return years[i];
   }
-  return inventory[i];
+  return years;
 }
 
-console.log(getOlderCars(inventory));
+console.log(`MAX YEAR: ${getOlderCars(inventory)}`);
 
 /**
  * ### Challenge `getGermanCars`
